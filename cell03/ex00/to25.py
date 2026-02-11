@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 
 try:
     print("Enter a number less than 25")

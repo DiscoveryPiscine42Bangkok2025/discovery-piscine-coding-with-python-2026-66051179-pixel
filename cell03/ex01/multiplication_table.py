@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 try:
     print("Enter a number")
     num = int(input())
