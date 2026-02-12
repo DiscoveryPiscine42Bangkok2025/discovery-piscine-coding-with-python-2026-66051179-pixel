@@ -21,7 +21,7 @@ def get_moves(piece, px, py, board, max_x, max_y):
         return moves
 
     elif piece == 'B': # Bishop
-        directions = [(-1, -1), (-1, 1), (1, -1), (1, 1)]
+        directions = [(-1, -1), (-1, 1), (1, -1), (1, 1)] #upleft , upright
     elif piece == 'R': # Rook
         directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
     elif piece == 'Q': # Queen
@@ -47,14 +47,14 @@ def checkmate(board_str):
         
         # 2. เช็คความถูกต้องของกระดาน (สี่เหลี่ยมผืนผ้า)
         if not rows:
-            print("Fail")
+            print("Table Fail")
             return
         
         height = len(rows)
         width = len(rows[0])
         for row in rows:
             if len(row) != width:
-                print("Fail")
+                print("H&W Fail")
                 return
 
         # 3. หาตำแหน่ง King และศัตรู
