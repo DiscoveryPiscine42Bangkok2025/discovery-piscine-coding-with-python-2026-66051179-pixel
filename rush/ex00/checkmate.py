@@ -4,12 +4,14 @@ def is_safe(pos_x, pos_y, max_x, max_y):
     return 0 <= pos_x < max_x and 0 <= pos_y < max_y  #FIXED
 
 def get_moves(piece, pos_x, pos_y, board, max_x, max_y):
+
     moves = []
     directions = []
+
     
     if piece == 'P':
         directions = [(-1, -1), (-1, 1)] 
-        # แก้ไขชื่อตัวแปรให้ตรงกัน (dy, dx)
+
         for dy, dx in directions:
             new_y, new_x = pos_y + dy, pos_x + dx
             if is_safe(new_x, new_y, max_x, max_y):
@@ -23,7 +25,7 @@ def get_moves(piece, pos_x, pos_y, board, max_x, max_y):
     elif piece == 'Q': 
         directions = [(-1, -1), (-1, 1), (1, -1), (1, 1), (-1, 0), (1, 0), (0, -1), (0, 1)]
 
-    # แก้ไขชื่อตัวแปรในลูปให้ตรงกัน (dy, dx)
+
     for dy, dx in directions:
         new_y, new_x = pos_y + dy, pos_x + dx
         while is_safe(new_x, new_y, max_x, max_y):
@@ -33,9 +35,9 @@ def get_moves(piece, pos_x, pos_y, board, max_x, max_y):
                 break
             
             new_y += dy
-            new_x += dx
-            
+            new_x += dx           
     return moves
+
 
 def checkmate(board_str):
     try:
@@ -65,7 +67,7 @@ def checkmate(board_str):
             print("TABLE IS NOT SQUARE!!") #FIXED
             return
 
-        # --- ส่วนที่แก้ไข: เปลี่ยนมาเก็บ List ของ King ---
+        # เก็บ List ของ King 
         kings_found = [] 
         enemies = [] 
 
@@ -92,8 +94,8 @@ def checkmate(board_str):
             print(f"Error: Multiple Kings found. Excess: {excess}")
             return
 
-        # ดึงตำแหน่ง King ตัวจริงออกมา (ตัวที่ 0)
-        king_pos = kings_found[0]
+        # ดึงตำแหน่ง King ตัวจริงออกมา 
+        king_pos = kings_found[0] #0 is pos of Real KING
 
         # --- คำนวณการรุกฆาต ---
         for piece, r, c in enemies:
@@ -102,7 +104,7 @@ def checkmate(board_str):
                 print("Success")
                 return
 
-        # print("Failสส")
+        print("Fail")
 
     except Exception:
-        print("Fail11")
+        print("Fail")
