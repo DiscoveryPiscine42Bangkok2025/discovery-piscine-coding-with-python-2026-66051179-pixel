@@ -3,7 +3,7 @@
 def is_safe(x, y, max_x, max_y):
     return 0 <= x < max_x and 0 <= y < max_y
 
-def get_moves(piece, pos_x, pps_y, board, max_x, max_y):
+def get_moves(piece, pos_x, pos_y, board, max_x, max_y):
     moves = []
     directions = []
     
