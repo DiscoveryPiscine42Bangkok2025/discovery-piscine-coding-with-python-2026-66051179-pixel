@@ -12,7 +12,6 @@ def enlarge(my_string):
     missing_count = 8 - len(my_string)
    
     padding = "Z" * missing_count
-    
    
     print(my_string + padding)
 
